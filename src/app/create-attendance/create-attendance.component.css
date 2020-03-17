@@ -1,0 +1,23 @@
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    /* background-color: #eee; */
+}
+
+
+/* .container {
+    overflow: scroll;
+} */
+
+select {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.form-control.is-valid {
+    background-image: none;
+}

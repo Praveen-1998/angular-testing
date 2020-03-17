@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://ThanushreeCU.github.io/TY_TechElevate_TrainingMaintenance_Thanushree/ty-styles-form.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body style="height: 1100px;">
+    <label for="title" class="ty-font heading">Please Register!!! </label><br>
+    <div class="card card-body  col-md-6 offset-3 mt-5">
+        <div class=" card-body  col-md-12">
+            <form action="" method="post" #registerForm="ngForm" autocomplete="off" (ngSubmit)='register(registerForm)'>
+                <div class="form-row mt-3">
+                    <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+                        <input type="text" class="form-control  inputText " id="name" name="name" #name="ngModel" ngModel required>
+                        <span class="floating-label">Name</span>
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="ty-errmsg ">
+                            <div *ngIf="name.errors.required"> Name is required * </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+                        <input type="text" class="form-control  inputText " id="email" name="email" #email="ngModel" ngModel required>
+                        <span class="floating-label">Email</span>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="ty-errmsg ">
+                            <div *ngIf="email.errors.required"> Email is required * </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mt-3">
+                    <div class="form-group col-md-6 ty-font user-input-wrp"><br />
+                        <input type="text" class="form-control  inputText " id="phoneNo" name="phoneNo" #phoneNo="ngModel" ngModel required>
+                        <span class="floating-label">Phone Number</span>
+                        <div *ngIf="phoneNo.invalid && (phoneNo.dirty || phoneNo.touched)" class="ty-errmsg ">
+                            <div *ngIf="phoneNo.errors.required"> Phone Number is required * </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+                        <select type="text" class="form-control inputText" id="gender" name="gender" #gender="ngModel" ngModel required>
+                            <option value='' selected>Choose Gender</option>
+                            <option class="non" value="male">Male</option>
+                            <option class="non" value="female">Female</option>
+                          </select>
+                        <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="ty-errmsg ">
+                            <div *ngIf="gender.errors.required"> Gender is required * </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mt-3">
+                    <div class="form-group col-md-6 ty-font  user-input-wrp"><br />
+                        <select type="text" class="form-control inputText" id="role" name="role" #role="ngModel" ngModel required>
+                            <option value='' selected>Choose Role</option>
+                            <option class="non" value="user">User</option>
+                            <option class="non" value="admin">Admin</option>
+                            <option class="non" value="manager">Manager</option>
+                          </select>
+                        <div *ngIf="role.invalid && (role.dirty || role.touched)" class="ty-errmsg ">
+                            <div *ngIf="role.errors.required"> Role is required * </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 ty-font left user-input-wrp"><br />
+                        <input type="text" class="form-control  inputText" id="password" name="password" #password="ngModel" ngModel required>
+                        <span class="floating-label">Password</span>
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="ty-errmsg ">
+                            <div *ngIf="password.errors.required"> Password is required * </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-right ty-create-button">
+                    <button type="submit" class="btn btn-outline-primary ty-font">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

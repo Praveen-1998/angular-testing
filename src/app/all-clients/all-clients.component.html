@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">clientId</th>
+                <th scope="col">client fullname</th>
+                <th scope="col">GSTIN</th>
+                <th scope="col">PAN NO</th>
+                <th scope="col">CIN</th>
+                <th scope="col">NOTES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let details of allClientDetails' (click)='particularRow(details.clientId)'>
+                <th scope="row">{{details.clientId}}</th>
+                <td>{{details.cfullname}}</td>
+                <td>{{details.gstin}}</td>
+                <td>{{details.panNo}}</td>
+                <td>{{details.cin}}</td>
+                <td>{{details.notes}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

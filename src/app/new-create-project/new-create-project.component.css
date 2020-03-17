@@ -1,0 +1,41 @@
+.more {
+    border: none;
+    background-color: lightblue;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+}
+
+.more:hover {
+    border: 1px solid #888;
+}
+
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+select {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.form-control.is-valid {
+    background-image: none;
+}
+
+.form-control {
+    outline: none !important;
+    border-radius: none;
+}
+
+.is-invalid {
+    background: none !important
+}

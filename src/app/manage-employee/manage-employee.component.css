@@ -1,0 +1,25 @@
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    /* background-color: #eee; */
+}
+
+form.go-bottom label {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: 0.2s;
+}
+
+form.go-bottom input:focus+label {
+    top: 100%;
+    margin-top: -16px;
+}
+
+.form-control.is-valid {
+    background-image: none;
+}

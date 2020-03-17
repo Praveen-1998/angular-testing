@@ -1,0 +1,44 @@
+    .more {
+        border: none;
+        background-color: lightblue;
+        transition: all ease-in-out 0.2s;
+        cursor: pointer;
+    }
+    
+    .more:hover {
+        border: 1px solid #888;
+    }
+    
+    input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: groove;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #777;
+        box-shadow: none !important;
+    }
+    
+    select {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: groove;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #777;
+        box-shadow: none !important;
+    }
+    
+    .form-control.is-valid {
+        background-image: none;
+    }
+    
+    .user-input-wrp.floating-label {
+        /* position: absolute; */
+        pointer-events: none;
+        top: 18px;
+        left: 10px;
+        transition: 0.2s ease all;
+    }

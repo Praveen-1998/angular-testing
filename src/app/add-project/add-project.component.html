@@ -1,0 +1,239 @@
+<label for="title" class="ty-font heading ">Requirement Status</label>
+<div class="card col-lg-4 col-md-4 offset-4 mt-5" style="height: 1600px; ">
+    <div class="card-body col-lg-12 col-md-12">
+        <form  [formGroup]="registerForm" (ngSubmit)="submitForm()">
+            <div class="form-row mt-3 ">
+                <div class="form mt-1 col-md-12">
+                    <div class="row col-6">
+                        <div>
+                            <h6>Stage</h6>
+                            <div class="col col-md-6 row">
+                                <div *ngFor="let data of Data; let i=index">
+                                    <label>
+                                      <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+                                      {{data.name}}
+                                    </label>
+                                </div>
+                            </div><br>
+                            <div class="mt-2 float-right "><label for="typesOfTax " >
+                                    <h6>Types of tax</h6>
+                                </label>
+                                <select class="browser-default custom-select" formControlName='typesOfTax' class="form-control">
+                                    <option selected>Open this to select Courses</option>
+                                    <option value="IGST">IGST</option>
+                                    <option value="SGST">SGST</option>
+                                    <option value="CGST">CGST</option>
+                                    <option value="Export">Export</option>
+                                    <option value="SEZ">SEZ</option>
+                                    <option value="US Vat">US Vat</option>
+                                    <option value="TDS">TDS</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row ">
+                        <div class="mt-2 col-md-6"><label for="HSNCode " >
+                                <h6>HSN Code</h6>
+                            </label>
+                            <select class="browser-default custom-select" formControlName='HSNCode' class="form-control">
+                                <option selected>select a value</option>
+                                <option value="60 days">60 days</option>
+                                <option value="45 days">45 days</option>
+                                <option value="30 days">30 days</option>
+                                <option value="5 days">5 days</option>
+                                <option value="7 days">7 days</option>
+                                <option value="15 days">15 days</option>
+                                <option value="90 days">90 days</option>
+                            </select>
+                        </div>
+
+                        <div class="mt-2 col-md-6"><label for="InvoiceBillingType " >
+                                <h6>Invoice Billing Type</h6>
+                            </label>
+                            <select class="browser-default custom-select" formControlName='InvoiceBillingType' class="form-control">
+                                <option selected> select a value</option>
+                                <option value="Project wise">Project wise</option>
+                                <option value="Body wise">BOdy wise</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mt-2 col-md-6"><label for="paymentterms " >
+                                <h6>Payment terms</h6>
+                            </label>
+                            <select class="browser-default custom-select" formControlName='paymentterms' class="form-control">
+                                <option selected>select a value</option>
+                                <option value="60 days">60 days</option>
+                                <option value="45 days">45 days</option>
+                                <option value="30 days">30 days</option>
+                                <option value="5 days">5 days</option>
+                                <option value="7 days">7 days</option>
+                                <option value="15 days">15 days</option>
+                                <option value="90 days">90 days</option>
+                            </select>
+                        </div>
+
+                        <div class="mt-2 col-md-6"><label for="Ourbankdetails " >
+                                <h6>Our bank details</h6>
+                            </label>
+                            <select class="browser-default custom-select" formControlName='Ourbankdetails' class="form-control">
+                                <option selected>select a value</option>
+                                <option value="IGST">ICICI BANK</option>
+                                <option value="SGST">CITI BANK</option>
+                                <option value="CGST">ICICI BANK PLC-76227571</option>
+                                <option value="Export">ICICI BANK-CBT</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                        <input type="text" class="form-control  inputText" id="gstNo" name="gstNo" formControlName='gstNo' class="form-control"
+                        >
+                        <span class="floating-label">GST No</span>
+                        <div *ngIf="gstNo.invalid && (gstNo.dirty || gstNo.touched)" class="ty-errmsg ">
+                            <div *ngIf="gstNo.errors.required"> gstNo required *
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row col-md-6 mt-2">
+                        <strong>
+                            <h6>Po</h6>
+                        </strong>
+                        <div class="custom-file" >
+                            <input type="file" class="custom-file-input" id="customFile" formControlName='po'>
+                            <label class="custom-file-label" for="customFile" >Choose file</label>
+                        </div>
+                        <strong>
+                            <h6 class="mt-2">SOW</h6>
+                        </strong>
+                        <div class="custom-file" >
+                            <input type="file" class="custom-file-input" id="customFile" formControlName='sow'>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        <strong>
+                            <h6 class="mt-2">WO</h6>
+                        </strong>
+                        <div class="custom-file" >
+                            <input type="file" class="custom-file-input" id="customFile" formControlName='wo'>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                    <div class=" border mt-4 col-md-12">
+                        <h6><i>Fill the Courier's Details</i></h6>
+                        <div class="form-row mt-1 col-md-12">
+                            <div class="row">
+                                <div class="mt-2 "><label for="Country " >
+                                        <h6>Country</h6>
+                                    </label>
+                                    <select class="browser-default custom-select" formControlName='Country' class="form-control">
+                                        <option selected>select a value</option>
+                                        <option value="IGST">India</option>
+                                        <option value="SGST">Australia</option>
+                                        <option value="CGST">USA</option>
+                                        <option value="Export">New York</option>
+                                        <option value="CGST">Germany</option>
+                                        <option value="Export">Italy</option>
+                                    </select>
+                                </div>
+                                <div class="form-group  mt-4 col-md-6 ty-font user-input-wrp" > <br />
+                                    <input type="text" class="form-control  inputText" id="fName" name="fName" formControlName='fName' class="form-control"
+                                       >
+                                    <span class="floating-label">Full Name </span>
+                                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)"
+                                        class="ty-errmsg ">
+                                        <div *ngIf="fName.errors.required"> Name required*
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                                    <input type="text" class="form-control  inputText" id="company" name="company" formControlName="company" class="form-control"
+                                        >
+                                    <span class="floating-label">Company : </span>
+                                    <div *ngIf="company.invalid && (company.dirty || company.touched)"
+                                        class="ty-errmsg ">
+                                        <div *ngIf="company.errors.required"> Company required * </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                                    <input type="text" class="form-control  inputText" id="address1" name="address1" formControlName='address1' class="form-control"
+                                       >
+                                    <span class="floating-label">Address 1 : </span>
+                                    <div *ngIf="address1.invalid && (address1.dirty || address1.touched)" class="ty-errmsg ">
+                                        <div *ngIf="address1.errors.required"> Address required * </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                                    <input type="text" class="form-control  inputText" id="address2" name="address2" formControlName='address2' 
+                                       >
+                                    <span class="floating-label">Address 2: </span>
+                                    <div *ngIf="address2.invalid && (address2.dirty || address2.touched)"
+                                        class="ty-errmsg ">
+                                        <div *ngIf="address2.errors.required">  Address required * </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                                    <input type="text" class="form-control  inputText" id="cTown" name="cTown" formControlName='cTown'
+                                       >
+                                    <span class="floating-label">Town/City: </span>
+                                    <div *ngIf="cTown.invalid && (cTown.dirty || cTown.touched)" class="ty-errmsg ">
+                                        <div *ngIf="cTown.errors.required"> Any one required * </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                                    <input type="text" class="form-control  inputText" id="cState" name="cState" formControlName='cState'
+                                       >
+                                    <span class="floating-label">State: </span>
+                                    <div *ngIf="cState.invalid && (cState.dirty || cState.touched)" class="ty-errmsg ">
+                                        <div *ngIf="cState.errors.required"> State required * </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2  ">
+                        <label for="bsd">
+                            <h6>Attendance collection date</h6>
+                        </label>
+                        <input type="date" class="form-control" id="bsd" name="bsd" formControlName='bsd' class="form-control">
+                    </div>
+                    <div class="mt-2"><label for="invoiceApprovalAuthority " >
+                            <h6>Invoice approval authority</h6>
+                        </label>
+                        <select class="browser-default custom-select" formControlName='invoiceApprovalAuthority'>
+                            <option selected>select a value</option>
+                            <option value="IGST">ICICI BANK</option>
+                            <option value="SGST">CITI BANK</option>
+                            <option value="CGST">ICICI BANK PLC-76227571</option>
+                            <option value="Export">ICICI BANK-CBT</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group mt-2">
+                        <label for="Description">Description/Comments</label>
+                        <textarea class="form-control" id="Description" rows="3" formControlName='Description'></textarea>
+                    </div>
+                    <strong>
+                        <h6>Other attachment</h6>
+                    </strong>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" formControlName='otherAttachment' >
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                    <div class="row mt-2">
+                    <div class="card col-md-3">
+                        <button type="button" class="btn btn-outline-primary ">save</button>
+                    </div>
+                    <div class="card col-md-3">
+                        <button type="submit" class="btn btn-outline-primary ">Perview</button>
+                    </div>
+                </div>
+                </div>
+                <!-- </div> -->
+            </div>
+
+        </form>
+    </div>
+</div>

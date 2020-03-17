@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="height: 1500px;">
+    <div class="container  mt-5">
+        <form action="" [formGroup]='myForm' (ngSubmit)='submit()'>
+            <div class="card card body" style="padding: 15px; border-width: 2px; border-radius: 10px;">
+                <label style="font-weight:bolder;font-size:24px ;">Create Project</label><br>
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group user-input-wrp">
+                            <label for="" id='label' class='floating-label'>Project Name <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='projectName' name='projectName' class="form-control inputText" [class.is-invalid]='projectName.invalid && projectName.touched' [class.is-valid]='projectName.valid'>
+                            <div *ngIf='projectName.invalid && projectName.touched'>
+                                <small class="text-danger" *ngIf='projectName.errors.required'>*this field is required</small>
+                                <small class="text-danger" *ngIf='projectName.errors.pattern'>*this field accepts only characters</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Client <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='client' name='client' class="form-control" [class.is-invalid]='client.invalid && client.touched' [class.is-valid]='client.valid'>
+                            <div *ngIf='client.invalid && client.touched'>
+                                <small class="text-danger" *ngIf='client.errors.required'>*this field is required</small>
+                                <small class="text-danger" *ngIf='client.errors.pattern'>*this field accepts only characters</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Our Company <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='ourCompany' name='ourCompany' class="form-control" [class.is-invalid]='ourCompany.invalid && ourCompany.touched' [class.is-valid]='ourCompany.valid'>
+                            <div *ngIf='ourCompany.invalid && ourCompany.touched'>
+                                <small class="text-danger" *ngIf='ourCompany.errors.required'>*this field is required</small>
+                                <small class="text-danger" *ngIf='ourCompany.errors.pattern'>*this field accepts only characters</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px; " formGroupName='taxLocation'>
+                <b for="" style="font-weight:bolder;font-size:24px">Tax Location</b><br>
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Country <span class="text-danger">*</span></label>
+                            <select type="text" formControlName='country' name='country' class="form-control" [class.is-invalid]='myForm.get("taxLocation.country").invalid && myForm.get("taxLocation.country").touched' [class.is-valid]='myForm.get("taxLocation.country").valid'>                         
+                            <option>India</option>
+                            <option>Afghanistan</option>
+                            <option>Akrotiri</option>
+                            <option>Albania</option>
+                            <option>Algeria</option>
+                            <option>American Samoa</option>
+                            <option>Andorra</option>
+                            <option>Angola</option>
+                            <option>Anguilla</option>
+                            <option>Antarctica</option>
+                     </select>
+                            <div *ngIf='myForm.get("taxLocation.country").invalid && myForm.get("taxLocation.country").touched'>
+                                <small class="text-danger" *ngIf='myForm.get("taxLocation.country").errors.required'>*this field is required</small>
+                                <small class="text-danger" *ngIf='myForm.get("taxLocation.country").errors.pattern'>*this field accepts only characters</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>City <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='city' name='city' class="form-control" [class.is-invalid]='myForm.get("taxLocation.city").invalid && myForm.get("taxLocation.city").touched' [class.is-valid]='myForm.get("taxLocation.city").valid'>
+                            <div *ngIf='myForm.get("taxLocation.city").invalid && myForm.get("taxLocation.city").touched'>
+                                <small class="text-danger" *ngIf='myForm.get("taxLocation.city").errors.required'>*this field is required</small>
+                                <small class="text-danger" *ngIf='myForm.get("taxLocation.city").errors.pattern'>*this field accepts only characters</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>State <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='state' name='state' class="form-control" [class.is-invalid]='myForm.get("taxLocation.state").invalid && myForm.get("taxLocation.state").touched' [class.is-valid]='myForm.get("taxLocation.state").valid'>
+                            <div *ngIf='myForm.get("taxLocation.state").invalid && myForm.get("taxLocation.state").touched'>
+                                <small class="text-danger" *ngIf='myForm.get("taxLocation.state").errors.required'>*this field is required</small>
+                                <small class="text-danger" *ngIf='myForm.get("taxLocation.state").errors.pattern'>*this field accepts only characters</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label' class="mb-4">SEZ</label><br>
+                            <input type="checkbox" formControlName='sez' name='sez'><label style="margin-left: 10px;">Belongs to SEZ</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px;">
+                <b for="" style="font-weight:bolder;font-size:24px">Business SPOC's <span class="text-danger">*</span> <button class=" more btn btn-outline-primary" style="float: right;" type="button" (click)='addAnotherBusinessItem()' title="Add another item">add+</button><br>
+                </b><br>
+                <div formArrayName='businessSPOC'>
+                    <div *ngFor='let business of getBusinessSpoc(myForm); index as i'>
+                        <div [formGroupName]='i'>
+                            <div class="row">
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Name </label>
+                                        <input type="text" formControlName='name' name='name' class="form-control" [class.is-invalid]='business.controls.name.invalid && business.controls.name.touched' [class.is-valid]='business.controls.name.valid'>
+                                        <div *ngIf='business.controls.name.invalid && business.controls.name.touched'>
+                                            <small class="text-danger" *ngIf='business.controls.name.errors.required'>*this field is required</small>
+                                            <small class="text-danger" *ngIf='business.controls.name.errors.pattern'>*this field accepts only characters</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Contact no</label>
+                                        <input type="number" formControlName='contactNo' name='contactNo' class="form-control" [class.is-invalid]='business.controls.contactNo.invalid && business.controls.contactNo.touched' [class.is-valid]='business.controls.contactNo.valid'>
+                                        <div *ngIf='business.controls.contactNo.invalid && business.controls.contactNo.touched'>
+                                            <small class="text-danger" *ngIf='business.controls.contactNo.errors.required'>*this field is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Email</label>
+                                        <input type="text" formControlName='email' name='email' class="form-control" [class.is-invalid]='business.controls.email.invalid && business.controls.email.touched' [class.is-valid]='business.controls.email.valid'>
+                                        <div *ngIf='business.controls.email.invalid && business.controls.email.touched'>
+                                            <small class="text-danger" *ngIf='business.controls.email.errors.required'>*this field is required</small>
+                                            <small class="text-danger" *ngIf='business.controls.email.errors.email'>*this field accepts only email</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-3 col-sm-3 col-lg-3">
+                                    <div class="form-group">
+                                        <button class=" more btn btn-outline-primary" type="button" (click)='remove(i)' title="Remove" style="margin-top: 10px"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px; ">
+                <h5 style="font-weight:bolder;font-size:24px ;">Finance SPOC's</h5><br>
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Name <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='name' name='name' class="form-control" [class.is-invalid]='name.invalid && name.touched' [class.is-valid]='name.valid'>
+                            <div *ngIf='name.invalid && name.touched'>
+                                <small class="text-danger" *ngIf='name.errors.required'>*this field is required</small>
+                                <small class="text-danger" *ngIf='name.errors.pattern'>*this field accepts only characters</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Contact no</label>
+                            <input type="number" formControlName='contactNo' name='contactNo' class="form-control" [class.is-invalid]='contactNo.invalid && contactNo.touched' [class.is-valid]='contactNo.valid'>
+                            <div *ngIf='contactNo.invalid && contactNo.touched'>
+                                <small class="text-danger" *ngIf='contactNo.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Email <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='email' name='email' class="form-control" [class.is-invalid]='email.invalid && email.touched' [class.is-valid]='email.valid'>
+                            <div *ngIf='email.invalid && email.touched'>
+                                <small class="text-danger" *ngIf='email.errors.required'>*this field is required</small>
+                                <small class="text-danger" *ngIf='email.errors.email'>*this field accepts only email</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Collection Owner <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='collectionOwner' name='collectionOwner' class="form-control" [class.is-invalid]='collectionOwner.invalid && collectionOwner.touched' [class.is-valid]='collectionOwner.valid'>
+                            <div *ngIf='collectionOwner.invalid && collectionOwner.touched'>
+                                <small class="text-danger" *ngIf='collectionOwner.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Leaves allowed <span class="text-danger">*</span></label>
+                            <input type="number" formControlName='leavesAllowed' name='leavesAllowed' class="form-control" [class.is-invalid]='leavesAllowed.invalid && leavesAllowed.touched' [class.is-valid]='leavesAllowed.valid'>
+                            <div *ngIf='leavesAllowed.invalid && leavesAllowed.touched'>
+                                <small class="text-danger" *ngIf='leavesAllowed.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Add days</label>
+                            <div *ngFor="let day of days; let i=index">
+                                <label>
+                                      <input type="checkbox" [value]="day.value" (change)="onCheckboxChange($event)" style="align-content: center;">
+                                      {{day.name}}
+                                    </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-12 col-sm-12 col-lg-12">
+                        <div class="form-group">
+                            <label for="" id='label'>Raise Invoice date <span class="text-danger">*</span></label>
+                            <input type="date" formControlName='invoiceDate' name='invoiceDate' class="form-control" [class.is-invalid]='invoiceDate.invalid && invoiceDate.touched' [class.is-valid]='invoiceDate.valid'>
+                            <div *ngIf='invoiceDate.invalid && invoiceDate.touched'>
+                                <small class="text-danger" *ngIf='invoiceDate.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px; ">
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Project Visibility <span class="text-danger">*</span></label>
+                            <div *ngFor="let data of projectVisi; let i=index">
+                                <input type="radio" [value]="data.value" (change)="onCheckboxChange2($event)" /> {{data.name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Type of tax <span class="text-danger">*</span></label>
+                            <select name='typesOfTax' formControlName='typesOfTax' class="form-control" [class.is-invalid]='invoiceDate.invalid && invoiceDate.touched' [class.is-valid]='invoiceDate.valid'>
+                        <option value="IGST">IGST</option>
+                        <option value="SGST">SGST</option>
+                        <option value="CGST">CGST</option>
+                        <option value="Export">Export</option>
+                        <option value="SEZ">SEZ</option>
+                        <option value="US Vat">US Vat</option>
+                        <option value="TDS">TDS</option>
+                           </select>
+                            <div *ngIf='typesOfTax.invalid && typesOfTax.touched'>
+                                <small class="text-danger" *ngIf='typesOfTax.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>HSN code<span class="text-danger">*</span></label>
+                            <select class="browser-default custom-select" formControlName='HSNCode' class="form-control" [class.is-invalid]='HSNCode.invalid && HSNCode.touched' [class.is-valid]='HSNCode.valid'>
+                                <option value="60 days">60 </option>
+                                <option value="45 days">45 </option>
+                                <option value="30 days">30 </option>
+                                <option value="5 days">5 </option>
+                                <option value="7 days">7 </option>
+                                <option value="15 days">15 </option>
+                                <option value="90 days">90 </option>
+                            </select>
+                            <div *ngIf='HSNCode.invalid && HSNCode.touched'>
+                                <small class="text-danger" *ngIf='HSNCode.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Invoice billing type<span class="text-danger">*</span></label>
+                            <select class="browser-default custom-select" formControlName='InvoiceBillingType' class="form-control" [class.is-invalid]='InvoiceBillingType.invalid && InvoiceBillingType.touched' [class.is-valid]='InvoiceBillingType.valid'>
+                                <option selected> select a value</option>
+                                <option value="Project wise">Project wise</option>
+                                <option value="Body wise">BOdy wise</option>
+                            </select>
+                            <div *ngIf='InvoiceBillingType.invalid && InvoiceBillingType.touched'>
+                                <small class="text-danger" *ngIf='InvoiceBillingType.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Payment terms<span class="text-danger">*</span></label>
+                            <select class="browser-default custom-select" formControlName='paymentterms' class="form-control" [class.is-invalid]='paymentterms.invalid && paymentterms.touched' [class.is-valid]='paymentterms.valid'>
+                                <option selected>select a value</option>
+                                <option value="60 days">60 days</option>
+                                <option value="45 days">45 days</option>
+                                <option value="30 days">30 days</option>
+                                <option value="5 days">5 days</option>
+                                <option value="7 days">7 days</option>
+                                <option value="15 days">15 days</option>
+                                <option value="90 days">90 days</option>
+                            </select>
+                            <div *ngIf='paymentterms.invalid && paymentterms.touched'>
+                                <small class="text-danger" *ngIf='paymentterms.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Our bank details<span class="text-danger">*</span></label>
+                            <select class="browser-default custom-select" formControlName='Ourbankdetails' class="form-control" [class.is-invalid]='Ourbankdetails.invalid && Ourbankdetails.touched' [class.is-valid]='Ourbankdetails.valid'>
+                                <option selected>select a value</option>
+                                <option value="IGST">ICICI BANK</option>
+                                <option value="SGST">CITI BANK</option>
+                                <option value="CGST">ICICI BANK PLC-76227571</option>
+                                <option value="Export">ICICI BANK-CBT</option>
+                            </select>
+                            <div *ngIf='Ourbankdetails.invalid && Ourbankdetails.touched'>
+                                <small class="text-danger" *ngIf='Ourbankdetails.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>GST No <span class="text-danger">*</span></label>
+                            <input type="text" formControlName='gstNo' name='gstNo' class="form-control" [class.is-invalid]='gstNo.invalid && gstNo.touched' [class.is-valid]='gstNo.valid'>
+                            <div *ngIf='gstNo.invalid && gstNo.touched'>
+                                <small class="text-danger" *ngIf='gstNo.errors.required'>*this field is required</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px; ">
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <b for="" id='label'>PO</b>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" formControlNAme='pofile'>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <small>Files must be less than <br><b>64 MB</b></small><br>
+                                <small>Allowed file types: <br><b>txt pdf doc xls xlsx png jpg bmp rtf odt</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px;">
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <b for="" id='label'>SOW</b>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" formControlNAme='sowfile'>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <small>Files must be less than <br><b>64 MB</b></small><br>
+                                <small>Allowed file types: <br><b>txt pdf doc xls xlsx png jpg bmp rtf odt</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px;">
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group ">
+                            <b for="" id='label'>WO</b>
+                            <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="customFile" formControlNAme='wofile'>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <small>Files must be less than <br><b>64 MB</b></small><br>
+                                <small>Allowed file types: <br><b>txt pdf doc xls xlsx png jpg bmp rtf odt</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px;">
+                <b for="" id='label'>Courier address</b>
+                <div formArrayName='courierAddress'>
+                    <div *ngFor='let address of getCourierAddress(myForm); index as i'>
+                        <div [formGroupName]='i'>
+                            <div class="row">
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Country <span class="text-danger">*</span> </label>
+                                        <input type="text" formControlName='country' name='country' class="form-control" [class.is-invalid]='address.controls.country.invalid && address.controls.country.touched' [class.is-valid]='address.controls.country.valid'>
+                                        <div *ngIf='address.controls.country.invalid && address.controls.country.touched'>
+                                            <small class="text-danger" *ngIf='address.controls.country.errors.required'>*this field is required</small>
+                                            <small class="text-danger" *ngIf='address.controls.country.errors.pattern'>*this field accepts only characters</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Full Name <span class="text-danger">*</span></label>
+                                        <input type="number" formControlName='fullName' name='fullName' class="form-control" [class.is-invalid]='address.controls.fullName.invalid && address.controls.fullName.touched' [class.is-valid]='address.controls.fullName.valid'>
+                                        <div *ngIf='address.controls.fullName.invalid && address.controls.fullName.touched'>
+                                            <small class="text-danger" *ngIf='address.controls.fullName.errors.required'>*this field is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Company</label>
+                                        <input type="text" formControlName='company' name='company' class="form-control" [class.is-invalid]='address.controls.company.invalid && address.controls.company.touched' [class.is-valid]='address.controls.company.valid'>
+                                        <div *ngIf='address.controls.company.invalid && address.controls.company.touched'>
+                                            <small class="text-danger" *ngIf='address.controls.company.errors.required'>*this field is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Address1 <span class="text-danger">*</span></label>
+                                        <input type="text" formControlName='address1' name='address1' class="form-control" [class.is-invalid]='address.controls.address1.invalid && address.controls.address1.touched' [class.is-valid]='address.controls.address1.valid'>
+                                        <div *ngIf='address.controls.address1.invalid && address.controls.address1.touched'>
+                                            <small class="text-danger" *ngIf='address.controls.address1.errors.required'>*this field is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Address2</label>
+                                        <input type="text" formControlName='address2' name='address2' class="form-control" [class.is-invalid]='address.controls.address2.invalid && address.controls.address2.touched' [class.is-valid]='address.controls.address2.valid'>
+                                        <div *ngIf='address.controls.address2.invalid && address.controls.address2.touched'>
+                                            <small class="text-danger" *ngIf='address.controls.address2.errors.required'>*this field is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>City <span class="text-danger">*</span></label>
+                                        <input type="text" formControlName='city' name='city' class="form-control" [class.is-invalid]='address.controls.city.invalid && address.controls.city.touched' [class.is-valid]='address.controls.city.valid'>
+                                        <div *ngIf='address.controls.city.invalid && address.controls.city.touched'>
+                                            <small class="text-danger" *ngIf='address.controls.city.errors.required'>*this field is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>State <span class="text-danger">*</span></label>
+                                        <input type="text" formControlName='state' name='state' class="form-control" [class.is-invalid]='address.controls.state.invalid && address.controls.state.touched' [class.is-valid]='address.controls.state.valid'>
+                                        <div *ngIf='address.controls.state.invalid && address.controls.state.touched'>
+                                            <small class="text-danger" *ngIf='address.controls.state.errors.required'>*this field is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="" id='label'>Pin code <span class="text-danger">*</span></label>
+                                        <input type="number" formControlName='pinCode' name='pinCode' class="form-control" [class.is-invalid]='address.controls.pinCode.invalid && address.controls.pinCode.touched' [class.is-valid]='address.controls.pinCode.valid'>
+                                        <div *ngIf='address.controls.pinCode.invalid && address.controls.pinCode.touched'>
+                                            <small class="text-danger" *ngIf='address.controls.pinCode.errors.required'>*this field is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px;">
+                <div class="row">
+                    <div class="col col-md-12 col-sm-12 col-lg-12 ">
+                        <div class="form-group">
+                            <b for="" id='label'>Attendance collection date</b>
+                            <div class="form-group mt-2">
+                                <input type="date" formControlName='attendanceCollectionDate' name='attendanceCollectionDate' class="form-control" [class.is-invalid]='attendanceCollectionDate.invalid && attendanceCollectionDate.touched' [class.is-valid]='attendanceCollectionDate.valid'>
+                                <small>E.g.,03/05/2020</small>
+                                <div *ngIf='attendanceCollectionDate.invalid && attendanceCollectionDate.touched'>
+                                    <small class="text-danger" *ngIf='attendanceCollectionDate.errors.required'>*this field is required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px;">
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Invoice approval authority <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <select name='invoiceApprovalAuthority' formControlName='invoiceApprovalAuthority' class="form-control" [class.is-invalid]='invoiceApprovalAuthority.invalid && invoiceApprovalAuthority.touched' [class.is-valid]='invoiceApprovalAuthority.valid'>
+                                    <option value="IGST">IGST</option>
+                                    <option value="SGST">SGST</option>
+                                    <option value="CGST">CGST</option>
+                                    <option value="Export">Export</option>
+                                    <option value="SEZ">SEZ</option>
+                                    <option value="US Vat">US Vat</option>
+                                    <option value="TDS">TDS</option>
+                                       </select>
+                                <div *ngIf='invoiceApprovalAuthority.invalid && invoiceApprovalAuthority.touched'>
+                                    <small class="text-danger" *ngIf='invoiceApprovalAuthority.errors.required'>*this field is required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6">
+                        <div class="form-group">
+                            <label for="" id='label'>Description</label>
+                            <input type="text" formControlName='description' name='description' class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card body mt-3" style="padding: 15px; border-width: 2px; border-radius: 10px;">
+                <div class="row">
+                    <div class="col col-md-6 col-sm-6 col-lg-6">
+                        <div class="form-group ">
+                            <b for="" id='label'>Other attachments</b><br>
+                            <small for="" id='label' style="font-size: 15px;">Add a new file</small>
+                            <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="customFile" formControlNAme='otherfile'>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <small>Files must be less than <br><b>64 MB</b></small><br>
+                                <small>Allowed file types: <br><b>txt pdf doc xls xlsx png jpg bmp rtf odt</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-primary float-right">submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

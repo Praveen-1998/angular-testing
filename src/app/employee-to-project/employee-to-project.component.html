@@ -1,0 +1,145 @@
+<label for="title" class="ty-font heading ">Employee To Project</label>
+<div class="card col-lg-4 col-md-4 offset-4 mt-5" style="height: 750px; ">
+    <div class="card-body col-lg-12 col-md-12">
+        <form [formGroup]="empolyeeToProjectForm" (ngSubmit)="submitForm()">
+            <div class="form-row mt-3 ">
+                <div class="form mt-1 col-md-12">
+                    <div class="row ">
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="employeeId" name="employeeId"
+                                formControlName='employeeId' class="form-control" (blur)="idPass(employeeId)">
+                            <span class="floating-label">Employee ID</span>
+                            <!-- <div *ngIf="employeeId.invalid && (employeeId.dirty || employeeId.touched)" class="ty-errmsg ">
+                                <div *ngIf="employeeId.errors.required"> employeeId required *
+                                </div>
+                            </div> -->
+                            
+                        </div>
+                        <!-- <button type="button"
+                            class="btn btn-outline-primary float-right  " 
+                            (blur)="idPass(employeeId)">
+                      
+                            </button> -->
+                    </div>
+                    <!-- <div >
+                        Employee Name:{{mydata.employee.empName}}
+                    </div>
+                    <div>
+                        Employee Email:{{mydata.employee.empEmail}}
+                    </div>
+                    <div>
+                        Employee PhoneNumber:{{mydata.employee.empPhNumber}}
+                    </div> -->
+                  
+                     <div class="row border">
+                        <div class="form-group col-md-6 ty-font user-input-wrp "> <br />
+                            <input type="text" class="form-control  inputText" id="empName" name="empName"
+                                formControlName='empName' class="form-control">
+                            <span class="floating-label">Employee Name</span>
+                            <!-- <div *ngIf="empName.invalid && (empName.dirty || empName.touched)" class="ty-errmsg ">
+                                <div *ngIf="empName.errors.required"> Employee name required *
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="empEmail" name="empEmail"
+                                formControlName='empEmail' class="form-control">
+                            <span class="floating-label">Email</span>
+                            <!-- <div *ngIf="empEmail.invalid && (empEmail.dirty || empEmail.touched)" class="ty-errmsg ">
+                                <div *ngIf="empEmail.errors.required"> empEmail required *
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="empPhNumber" name="empPhNumber"
+                                formControlName='empPhNumber' class="form-control">
+                            <span class="floating-label">Phone Number</span>
+                            <!-- <div *ngIf="empPhNumber.invalid && (empPhNumber.dirty || empPhNumber.touched)" class="ty-errmsg ">
+                                <div *ngIf="empPhNumber.errors.required"> Phone Number required *
+                                </div>
+                            </div> -->
+                        </div>
+                    </div> 
+
+                    <div class="row mt-2">
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="projectId" name="projectId"
+                                formControlName='projectId' class="form-control">
+                            <span class="floating-label">Project ID</span>
+                            <!-- <div *ngIf="projectId.invalid && (projectId.dirty || projectId.touched)" class="ty-errmsg ">
+                                <div *ngIf="projectId.errors.required"> projectId required *
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="projectEmailIdOfEmployee"
+                                name="projectEmailIdOfEmployee" formControlName='projectEmailIdOfEmployee'
+                                class="form-control">
+                            <span class="floating-label">Project Email ID of Employee (optional)</span>
+                            <!-- <div *ngIf="projectempEmailIdOfEmployee.invalid && (projectempEmailIdOfEmployee.dirty || projectempEmailIdOfEmployee.touched)" class="ty-errmsg ">
+                            <div *ngIf="projectempEmailIdOfEmployee.errors.required"> project-empEmailIdOfEmployeerequired *
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row col-md-12">
+                    <div class="mt-2 col-md-6"><label for="billableType ">
+                            <h6> Billable Type</h6>
+                        </label>
+                        <select class="browser-default custom-select" formControlName='billableType'
+                            class="form-control">
+                            <option selected> select a value</option>
+                            <option value="Billable">Project wise</option>
+                            <option value="Non-billable">Body wise</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-2  col-md-6">
+                        <label for="bsd">
+                            <h6>Billing Start Date</h6>
+                        </label>
+                        <input type="date" class="form-control" id="bsd" name="bsd" formControlName='bsd'
+                            class="form-control">
+                    </div>
+                </div>
+
+                <div class="row  mt-2 ">
+                    <div class="col-md-12">
+                        <strong>
+                            <h6>Po</h6>
+                        </strong>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" formControlName='po'>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <strong>
+                            <h6 class="mt-2">SOW</h6>
+                        </strong>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" formControlName='sow'>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <strong>
+                            <h6 class="mt-2">WO</h6>
+                        </strong>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" formControlName='wo'>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="card col-md-3 mt-2">
+                <button type="submit" class="btn btn-outline-primary ">Submit</button>
+            </div>
+        </form>
+        
+    </div>
+</div>

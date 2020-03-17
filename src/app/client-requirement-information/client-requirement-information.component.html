@@ -1,0 +1,122 @@
+<label for="title" class="ty-font heading ">Client Requirement Information</label>
+<div class="card col-lg-4 col-md-4 offset-4 mt-5" style="height: 680px; ">
+    <div class="card-body col-lg-12 col-md-12">
+        <form action="" method="post" #form="ngForm" (ngSubmit)="clientRequirementInformation(form.value)">
+            <div class="form-row mt-3 ">
+                <div class="form mt-1 col-md-12">
+                    <div class="row col-md-12">
+                        <div class="form-group   col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="BD" name="BD" #BD="ngModel" ngModel
+                                required>
+                            <span class="floating-label">BD</span>
+                            <div *ngIf="BD.invalid && (BD.dirty || BD.touched)" class="ty-errmsg ">
+                                <div *ngIf="BD.errors.required"> BD required * </div>
+                            </div>
+                        </div>
+                        <div class="form-group  ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="Customer" name="Customer"
+                                #Customer="ngModel" ngModel required>
+                            <span class="floating-label">Customer </span>
+                            <div *ngIf="Customer.invalid && (Customer.dirty || Customer.touched)" class="ty-errmsg ">
+                                <div *ngIf="Customer.errors.required"> customer required *
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 ty-font user-input-wrp mt-3"> <br />
+                            <input type="text" class="form-control  inputText" id="businessRequirement"
+                                name="businessRequirement" #businessRequirement="ngModel" ngModel required>
+                            <span class="floating-label">Business Requirement</span>
+                            <div *ngIf="businessRequirement.invalid && (businessRequirement.dirty || businessRequirement.touched)"
+                                class="ty-errmsg ">
+                                <div *ngIf="businessRequirementD.errors.required"> BusinessRequirement required * </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="shareDate">
+                                <h6>Share Date :</h6>
+                            </label>
+                            <input type="date" class="form-control" id="shareDate" name="shareDate" #shareDate="ngModel"
+                                ngModel>
+                        </div>
+                    </div>
+                    
+                    <div><label for="skillSet">
+                            <h6>Skill set</h6>
+                        </label>
+
+                        <select class="browser-default custom-select">
+                            <option selected>Open this to select Skill-set</option>
+                            <option value="Java">Java</option>
+                            <option value="J2EE">J2EE</option>
+                            <option value="SQL">SQL</option>
+                            <option value="Springs">Springs</option>
+                            <option value="Hibernet">Hibernet</option>
+                            <option value="Angular">Springs</option>
+                            <option value="JavaScript">JavaScript</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-2"><label for="skillSet ">
+                            <h6>Courses</h6>
+                        </label>
+                        <select class="browser-default custom-select">
+                            <option selected>Open this to select Courses</option>
+                            <option value="Java">Java</option>
+                            <option value="J2EE">J2EE</option>
+                            <option value="SQL">SQL</option>
+                            <option value="Springs">Springs</option>
+                            <option value="Hibernet">Hibernet</option>
+                            <option value="Angular">Springs</option>
+                            <option value="JavaScript">JavaScript</option>
+                        </select>
+                    </div>
+                    
+
+                    <div class="mt-1">
+                        <h6>Status</h6>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="Status" id="OnGoing" #Status="ngModel"
+                            value="OnGoing" ngModel>
+                        <label class="form-check-label" value="OnGoing">On going</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="Status" id="Paused" #Status="ngModel" ngModel
+                            value="Paused">
+                        <label class="form-check-label" value="Paused">Paused</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="Status" id="Completed" #Status="ngModel"
+                            ngModel value="Completed">
+                        <label class="form-check-label" value="Completed">Completed</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="Status" id="YetToBegin" #Status="ngModel"
+                            ngModel value="YetToBegin">
+                        <label class="form-check-label" value="YetToBegin">Yet to begin</label>
+                    </div>
+
+
+
+                    <!-- <div> -->
+
+
+
+                    <!-- </div> -->
+                </div>
+                <div class="form-group col-md-12 mt-2 float-left">
+                    <label for="remarks">
+                        <h6>Remarks</h6>
+                    </label>
+                    <textarea rows="5" class=" form-control" id="remarks" name="remarks" #remarks="ngModel" ngModel
+                        required></textarea>
+                </div>
+
+            </div>
+            <div class="form">
+                <button type="submit" class="btn btn-outline-primary col-md-4 ">Submit</button>
+            </div>
+        </form>
+    </div>
+</div> 

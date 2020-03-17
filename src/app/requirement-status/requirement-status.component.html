@@ -1,0 +1,131 @@
+<label for="title" class="ty-font heading ">Requirement Status</label>
+<div class="card col-lg-4 col-md-4 offset-4 mt-5" style="height: 500px; ">
+    <div class="card-body col-lg-12 col-md-12">
+        <form action="" method="post" #form="ngForm" (ngSubmit)="requirementStatus(form.value)">
+            <div class="form-row mt-3 ">
+                <div class="form-row mt-1 col-md-12">
+                    <div class="row">
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="Customer" name="Customer"
+                                #Customer="ngModel" ngModel required>
+                            <span class="floating-label">Customer </span>
+                            <div *ngIf="Customer.invalid && (Customer.dirty || Customer.touched)" class="ty-errmsg ">
+                                <div *ngIf="Customer.errors.required"> customer required *
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group col-md-12">
+                        <label for="businessVertical">
+                            <h5>Business Vertical</h5>
+                        </label>
+                        <textarea rows="6" class=" form-control" id="businessVertical" name="businessVertical"
+                            #businessVertical="ngModel" ngModel required></textarea>
+                    </div> -->
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="BusinessVertical" name="BusinessVertical" #BusinessVertical="ngModel" ngModel
+                                required>
+                            <span class="floating-label">Business Vertical</span>
+                            <div *ngIf="BusinessVertical.invalid && (BusinessVertical.dirty || BusinessVertical.touched)"
+                                class="ty-errmsg ">
+                                <div *ngIf="BusinessVertical.errors.required"> Business Vertical required * </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="BD" name="BD" #BD="ngModel" ngModel
+                                required>
+                            <span class="floating-label">BD</span>
+                            <div *ngIf="BD.invalid && (BD.dirty || BD.touched)" class="ty-errmsg ">
+                                <div *ngIf="BD.errors.required"> BD required * </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 ty-font user-input-wrp"> <br />
+                            <input type="text" class="form-control  inputText" id="Owner" name="Owner" #Owner="ngModel"
+                                ngModel required>
+                            <span class="floating-label">Owner</span>
+                            <div *ngIf="Owner.invalid && (Owner.dirty || Owner.touched)" class="ty-errmsg ">
+                                <div *ngIf="Owner.errors.required"> Owner required * </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2  col-md-6">
+                            <label for="shareDate ">
+                                <h6>Meeting Scheduled</h6>
+                            </label>
+                            <input type="datetime-local" class="form-control" id="shareDate" name="shareDate"
+                                #shareDate="ngModel" ngModel>
+                            <!-- <div class="col-md-6">
+                                <input type="datetime" class="form-control" id="shareDate" name="shareDate" #shareDate="ngModel"
+                                    ngModel>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="mt-1">
+                        <div>
+                            <h6>Stage</h6>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Stage" id="20%" #Stage="ngModel"
+                                value="20%" ngModel>
+                            <label class="form-check-label" value="20%">20%</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Stage" id="40%" #Stage="ngModel" ngModel
+                                value="40%">
+                            <label class="form-check-label" value="40%">40%</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Stage" id="60%" #Stage="ngModel" ngModel
+                                value="60%">
+                            <label class="form-check-label" value="60%">60%</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Stage" id="80%" #Stage="ngModel" ngModel
+                                value="80%">
+                            <label class="form-check-label" value="80%">80%</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Stage" id="100%" #Stage="ngModel" ngModel
+                                value="100%">
+                            <label class="form-check-label" value="100%">100%</label>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <div>
+                            <h6>Status</h6>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input
+                                class="                                                                                                                                               form-check-input"
+                                type="radio" name="Status" id="Open" #Status="ngModel" value="Openg" ngModel>
+                            <label class="form-check-label" value="Open">Open</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Status" id="Close" #Status="ngModel"
+                                ngModel value="Close">
+                            <label class="form-check-label" value="Close"> Close</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Status" id="On-hold" #Status="ngModel"
+                                ngModel value="On-hold">
+                            <label class="form-check-label" value="On-hold">On-hold</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Status" id="Processing" #Status="ngModel"
+                                ngModel value="Processing">
+                            <label class="form-check-label" value="Processing">Processing</label>
+                        </div>
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-outline-primary col-4 ">Submit</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+

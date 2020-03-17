@@ -1,0 +1,93 @@
+<div class="container  mt-5">
+    <form action="" [formGroup]='myForm' (ngSubmit)='submit()'>
+        <div style="padding: 15px; border-width: 2px; border-radius: 10px;">
+            <h3 style="font-weight:bolder;font-size:24px;">Create Attendance</h3><br>
+            <label style="font-weight:bolder;font-size:20px ;">Attendance Month and Year</label><br>
+            <div class="row">
+                <div class="col col-md-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="" id='label' class="go-bottom">Month<span class="text-danger">*</span></label>
+                        <select type="text" formControlName='month' name='month' class="form-control" [class.is-invalid]='month.invalid && month.touched' [class.is-valid]='month.valid'>                         
+                            <option value="jan">Jan</option>
+                            <option value="feb">Feb</option>
+                            <option value="mar">Mar</option>
+                            <option value="apr">April</option>
+                            <option value="may">May</option>
+                            <option value="jun">Jun</option>
+                            <option value="jul">July</option>
+                            <option value="aug">August</option>
+                            <option value="sep">September</option>
+                            <option value="oct">October</option>
+                            <option value="nov">November</option>
+                            <option value="dec">December</option>
+                     </select>
+                        <div *ngIf='month.invalid && month.touched'>
+                            <small class="text-danger" *ngIf='month.errors.required'>*this field is required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="" id='label' class="go-bottom">Year<span class="text-danger">*</span></label>
+                        <select type="text" formControlName='year' name='year' class="form-control" [class.is-invalid]='year.invalid && year.touched' [class.is-valid]='year.valid'>                         
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                     </select>
+                        <div *ngIf='year.invalid && year.touched'>
+                            <small class="text-danger" *ngIf='year.errors.required'>*this field is required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="" id='label'>Worked days<span class="text-danger">*</span></label>
+                        <input type="number" formControlName='workedDays' name='workedDays' class="form-control" [class.is-invalid]='workedDays.invalid && workedDays.touched' [class.is-valid]='workedDays.valid'>
+                        <div *ngIf='workedDays.invalid && workedDays.touched'>
+                            <small class="text-danger" *ngIf='workedDays.errors.required'>*this field is required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="" id='label'>Leaves taken <span class="text-danger">*</span></label>
+                        <input type="number" formControlName='leavesTaken' name='leavesTaken' class="form-control" [class.is-invalid]='leavesTaken.invalid && leavesTaken.touched' [class.is-valid]='leavesTaken.valid'>
+                        <div *ngIf='leavesTaken.invalid && leavesTaken.touched'>
+                            <small class="text-danger" *ngIf='leavesTaken.errors.required'>*this field is required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label for="" id='label'>Project <span class="text-danger">*</span></label>
+                        <select type="text" formControlName='project' name='project' class="form-control" [class.is-invalid]='project.invalid && project.touched' [class.is-valid]='project.valid'>                         
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                     </select>
+                        <div *ngIf='project.invalid && project.touched'>
+                            <small class="text-danger" *ngIf='project.errors.required'>*this field is required</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding: 15px; border-width: 2px; border-radius: 10px;">
+            <div class="row">
+                <div class="col col-md-12 col-sm-12 col-lg-12">
+                    <div class="form-group ">
+                        <label style="font-weight:bolder;font-size:20px ;">Upload timesheet</label><br>
+                        <small for="" id='label' style="font-size: 15px;">Add a new file</small>
+                        <div>
+                            <input type="file" class="form-control-file" id="">
+                            <label for="">Choose file</label>
+                            <small>Files must be less than <br><b>64 MB</b></small><br>
+                            <small>Allowed file types: <br><b>txt pdf doc xls xlsx png jpg bmp rtf odt</b></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-success float-right col-md-2">submit</button>
+    </form>
+</div>
